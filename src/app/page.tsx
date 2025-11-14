@@ -59,6 +59,7 @@ export default function Home() {
           <div className="container px-4 md:px-6 text-white">
             <div className="flex flex-col items-center space-y-4">
               <AnimatedSplitText
+                el="div"
                 text="Your Health, Connected and Cared For"
                 className="text-4xl font-bold tracking-tighter sm:text-6xl xl:text-7xl/none font-headline"
               />
