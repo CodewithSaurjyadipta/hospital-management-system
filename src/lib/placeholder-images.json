@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-image",
-      "description": "A compassionate doctor talking to a patient in a bright, modern clinic.",
-      "imageUrl": "https://storage.googleapis.com/aif-us-build-prod-0/public/project_icoj095/team_collaboration_1720815410196_s48l3z31.jpeg",
-      "imageHint": "medical team collaboration"
+      "description": "A compassionate doctor using a laptop to show a patient information.",
+      "imageUrl": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxob3NwaXRhbCUyMHRlY2h8ZW58MHx8fHwxNzYzMTY5ODU2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hospital tech"
     },
     {
       "id": "feature-schedule",
@@ -15,31 +15,31 @@
     {
       "id": "feature-records",
       "description": "A person securely accessing their health data on a laptop.",
-      "imageUrl": "https://images.unsplash.com/photo-1758691463198-dc663b8a64e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtZWRpY2FsJTIwcmVjb3Jkc3xlbnwwfHx8fDE3NjMwODUzNzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758691463198-dc663b8a64e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtZWRpY2FsJTIwcmVjb3Jkc3xlbnwwfHx8fDE3NjMwODUzNzF8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "medical records"
     },
     {
       "id": "feature-prescriptions",
       "description": "An assortment of colorful pills and a prescription bottle.",
-      "imageUrl": "https://images.unsplash.com/photo-1641561421178-db8542057811?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGlsbHMlMjBtZWRpY2F0aW9ufGVufDB8fHx8MTc2MzE0NTcyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1641561421178-db8542057811?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGlsbHMlMjBtZWRpY2F0aW9ufGVufDB8fHx8MTc2MzE0NTcyM3ww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "pills medication"
     },
     {
       "id": "doctor-avatar-1",
       "description": "Avatar for Dr. Emily Carter",
-      "imageUrl": "https://images.unsplash.com/photo-1730597842283-943c7986ee2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkb2N0b3IlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjMxNDA0MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1730597842283-943c7986ee2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkb2N0b3IlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjMxNDA0MTh8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "doctor portrait"
     },
     {
       "id": "doctor-avatar-2",
       "description": "Avatar for Dr. Ben Adams",
-      "imageUrl": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZG9jdG9yJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzYzMTQwNDE4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZG9jdG9yJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzYzMTQwNDE4fDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "doctor portrait"
     },
     {
       "id": "patient-avatar-1",
       "description": "Avatar for a patient",
-      "imageUrl": "https://images.unsplash.com/photo-1521119989659-a83eee488004?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjMxNDEzMjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1521119989659-a83eee488004?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjMxNDEzMjJ8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "person portrait"
     }
   ]
