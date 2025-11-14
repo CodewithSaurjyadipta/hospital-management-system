@@ -26,7 +26,7 @@ export interface SplitTextProps {
 const SplitText: React.FC<SplitTextProps> = ({
   text,
   className = '',
-  delay = 100,
+  delay = 50,
   duration = 0.6,
   ease = 'power3.out',
   splitType = 'chars',
@@ -41,8 +41,10 @@ const SplitText: React.FC<SplitTextProps> = ({
   const ref = useRef<HTMLParagraphElement>(null);
   const animationCompletedRef = useRef(false);
   const [fontsLoaded, setFontsLoaded] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     if (document.fonts.status === 'loaded') {
       setFontsLoaded(true);
     } else {
@@ -54,7 +56,7 @@ const SplitText: React.FC<SplitTextProps> = ({
 
   useGSAP(
     () => {
-      if (!ref.current || !text || !fontsLoaded) return;
+      if (!ref.current || !text || !fontsLoaded || !isMounted) return;
 
       const el = ref.current as HTMLElement & {
         _rbsplitInstance?: GSAPSplitText;
@@ -95,6 +97,7 @@ const SplitText: React.FC<SplitTextProps> = ({
         reduceWhiteSpace: false,
         onSplit: (self: GSAPSplitText) => {
           assignTargets(self);
+          gsap.set(el, { opacity: 1 }); // Make container visible before animating children
           return gsap.fromTo(
             targets,
             { ...from },
@@ -143,7 +146,8 @@ const SplitText: React.FC<SplitTextProps> = ({
         threshold,
         rootMargin,
         fontsLoaded,
-        onLetterAnimationComplete
+        onLetterAnimationComplete,
+        isMounted,
       ],
       scope: ref
     }
@@ -156,8 +160,12 @@ const SplitText: React.FC<SplitTextProps> = ({
       display: 'inline-block',
       whiteSpace: 'normal',
       wordWrap: 'break-word',
-      willChange: 'transform, opacity'
+      willChange: 'transform, opacity',
+      opacity: isMounted ? 1 : 0
     };
+    if (!isMounted) {
+      style.opacity = 0;
+    }
     const classes = `split-parent ${className}`;
     switch (tag) {
       case 'h1':
