@@ -23,8 +23,8 @@ const navLinks = [
 export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center gap-6 md:gap-10">
+      <div className="container flex h-16 items-center">
+        <div className="mr-auto flex items-center gap-6 md:gap-10">
           <Link href="/" className="flex items-center space-x-2">
             <Icons.logo className="h-6 w-6 text-primary" />
             <span className="hidden font-bold sm:inline-block font-headline">
@@ -72,7 +72,7 @@ export function Header() {
               </div>
             </SheetContent>
           </Sheet>
-          <nav className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost">
@@ -93,7 +93,7 @@ export function Header() {
               <Button>Login</Button>
             </Link>
             <ThemeToggle />
-          </nav>
+          </div>
         </div>
       </div>
     </header>
