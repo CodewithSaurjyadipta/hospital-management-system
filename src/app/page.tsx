@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -100,7 +101,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:max-w-none lg:grid-cols-3 mt-12">
+            <div className="mx-auto grid max-w-5xl items-start justify-center gap-8 sm:grid-cols-2 md:gap-12 lg:max-w-none lg:grid-cols-3 mt-12">
               {features.map((feature, index) => (
                 <Card
                   key={index}
