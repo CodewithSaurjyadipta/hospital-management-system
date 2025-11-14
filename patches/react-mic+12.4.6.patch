@@ -1,0 +1,10 @@
+--- a/node_modules/react-mic/package.json
++++ b/node_modules/react-mic/package.json
+@@ -53,6 +53,6 @@
+     "babel-core": "^6.24.1"
+   },
+   "peerDependencies": {
+-    "react": "16.x"
++    "react": "16.x || 17.x || 18.x"
+   }
+ }

@@ -1,6 +1,7 @@
-"use server";
+'use server';
 
 import { medicationInteractionCheck } from "@/ai/flows/medication-interaction-check";
+import { scheduleAppointment } from "@/ai/flows/appointment-scheduler-flow";
 import { z } from "zod";
 
 const CheckMedicationInteractionSchema = z.object({
@@ -35,6 +36,39 @@ export async function checkMedicationInteraction(prevState: any, formData: FormD
             message: "An unexpected error occurred. Please try again.",
             hasInteraction: null,
             interactionDetails: null,
+            error: true,
+        };
+    }
+}
+
+
+const AiSchedulerSchema = z.object({
+  query: z.string().min(1, "Query cannot be empty."),
+});
+
+export async function getAiSchedulerResponse(prevState: any, formData: FormData) {
+    try {
+        const validatedFields = AiSchedulerSchema.safeParse({
+            query: formData.get("query"),
+        });
+
+        if (!validatedFields.success) {
+            return {
+                response: "Invalid query.",
+                isBooked: false,
+                errors: validatedFields.error.flatten().fieldErrors,
+            };
+        }
+        
+        const result = await scheduleAppointment(validatedFields.data);
+
+        return result;
+
+    } catch (error) {
+        console.error("Error in AI Scheduler action:", error);
+        return {
+            response: "An unexpected error occurred. Please try again.",
+            isBooked: false,
             error: true,
         };
     }
