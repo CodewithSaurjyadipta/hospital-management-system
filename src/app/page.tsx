@@ -4,6 +4,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight, Calendar, FileText, Pill } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { AnimatedSplitText } from '@/components/animated-split-text';
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
@@ -44,44 +45,41 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-[calc(100vh-4rem)]">
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-card">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none font-headline">
-                    Your Health,
-                    <br />
-                    Connected and Cared For
-                  </h1>
-                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    MediCare provides a seamless platform for patients and
-                    doctors to manage healthcare efficiently and securely.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Link href="/signup/patient">
-                    <Button size="lg">
-                      I'm a Patient <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
-                  <Link href="/signup/doctor">
-                    <Button size="lg" variant="secondary">
-                      I'm a Doctor <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
-                </div>
+        <section className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center text-center">
+          {heroImage && (
+            <Image
+              src={heroImage.imageUrl}
+              alt={heroImage.description}
+              fill
+              className="object-cover -z-10 brightness-50"
+              data-ai-hint={heroImage.imageHint}
+              priority
+            />
+          )}
+          <div className="container px-4 md:px-6 text-white">
+            <div className="flex flex-col items-center space-y-4">
+              <AnimatedSplitText
+                text="Your Health, Connected and Cared For"
+                className="text-4xl font-bold tracking-tighter sm:text-6xl xl:text-7xl/none font-headline"
+              />
+
+              <p className="max-w-[700px] text-lg md:text-xl text-gray-200">
+                MediCare provides a seamless platform for patients and doctors
+                to manage healthcare efficiently and securely.
+              </p>
+
+              <div className="flex flex-col gap-2 min-[400px]:flex-row pt-4">
+                <Link href="/signup/patient">
+                  <Button size="lg">
+                    I'm a Patient <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link href="/signup/doctor">
+                  <Button size="lg" variant="secondary">
+                    I'm a Doctor <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
               </div>
-              {heroImage && (
-                <Image
-                  src={heroImage.imageUrl}
-                  alt={heroImage.description}
-                  width={600}
-                  height={400}
-                  className="mx-auto aspect-[3/2] overflow-hidden rounded-xl object-cover sm:w-full"
-                  data-ai-hint={heroImage.imageHint}
-                />
-              )}
             </div>
           </div>
         </section>
