@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowRight, Calendar, Pill, Stethoscope, User } from 'lucide-react';
+import { ArrowRight, Bot, Pill, Stethoscope, User } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { format, parseISO } from 'date-fns';
@@ -56,10 +56,10 @@ export default function PatientDashboard() {
               <CardTitle>Quick Actions</CardTitle>
             </CardHeader>
             <CardContent className="grid gap-2">
-              <Link href="/patient/schedule-appointment">
+              <Link href="/patient/ai-scheduler">
                 <Button className="w-full justify-start gap-2">
-                  <Calendar className="h-4 w-4" />
-                  Schedule Appointment
+                  <Bot className="h-4 w-4" />
+                  AI Scheduler
                 </Button>
               </Link>
               <Link href="/patient/billing">
