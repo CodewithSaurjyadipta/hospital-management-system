@@ -106,11 +106,13 @@ export default function Home() {
                   key={index}
                   className="transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
                 >
-                  <CardHeader className="flex flex-row items-center gap-4">
-                    {feature.icon}
-                    <CardTitle className="font-headline">
-                      {feature.title}
-                    </CardTitle>
+                  <CardHeader>
+                    <div className="flex flex-row items-center gap-4">
+                      {feature.icon}
+                      <CardTitle className="font-headline text-left">
+                        {feature.title}
+                      </CardTitle>
+                    </div>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     {feature.image && (
