@@ -2,6 +2,7 @@
 
 import { medicationInteractionCheck } from "@/ai/flows/medication-interaction-check";
 import { scheduleAppointment } from "@/ai/flows/appointment-scheduler-flow";
+import { speechToText } from "@/ai/flows/speech-to-text-flow";
 import { z } from "zod";
 
 const CheckMedicationInteractionSchema = z.object({
@@ -70,6 +71,36 @@ export async function getAiSchedulerResponse(prevState: any, formData: FormData)
             response: "An unexpected error occurred. Please try again.",
             isBooked: false,
             error: true,
+        };
+    }
+}
+
+const TranscribeAudioSchema = z.object({
+  audio: z.string().min(1, "Audio data cannot be empty."),
+});
+
+export async function transcribeAudio(prevState: any, formData: FormData) {
+    try {
+        const validatedFields = TranscribeAudioSchema.safeParse({
+            audio: formData.get("audio"),
+        });
+
+        if (!validatedFields.success) {
+            return {
+                text: null,
+                error: "Invalid audio data.",
+            };
+        }
+        
+        const result = await speechToText({ audio: validatedFields.data.audio });
+
+        return { text: result.text, error: null };
+
+    } catch (error) {
+        console.error("Error in transcribeAudio action:", error);
+        return {
+            text: null,
+            error: "An unexpected error occurred during transcription. Please try again.",
         };
     }
 }
