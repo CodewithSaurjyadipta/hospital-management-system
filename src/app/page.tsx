@@ -104,12 +104,12 @@ export default function Home() {
               {features.map((feature, index) => (
                 <Card
                   key={index}
-                  className="transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+                  className="transform transition-transform duration-300 hover:scale-105 hover:shadow-xl flex flex-col items-center text-center"
                 >
                   <CardHeader>
-                    <div className="flex flex-row items-center gap-4">
+                    <div className="flex flex-col items-center gap-4">
                       {feature.icon}
-                      <CardTitle className="font-headline text-left">
+                      <CardTitle className="font-headline">
                         {feature.title}
                       </CardTitle>
                     </div>
