@@ -1,0 +1,102 @@
+'use client';
+
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { ChevronDown, Menu } from 'lucide-react';
+import { ThemeToggle } from './theme-toggle';
+import { Icons } from '../icons';
+
+const navLinks = [
+  { href: '/patient/dashboard', label: 'Patient Dashboard' },
+  { href: '/doctor/dashboard', label: 'Doctor Dashboard' },
+  { href: '/admin', label: 'Admin' },
+];
+
+export function Header() {
+  return (
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 items-center">
+        <div className="mr-4 hidden md:flex">
+          <Link href="/" className="mr-6 flex items-center space-x-2">
+            <Icons.logo className="h-6 w-6 text-primary" />
+            <span className="hidden font-bold sm:inline-block font-headline">
+              MediCare
+            </span>
+          </Link>
+          <nav className="flex items-center space-x-6 text-sm font-medium">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="transition-colors hover:text-foreground/80 text-foreground/60"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Toggle Menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="pr-0">
+                <Link href="/" className="flex items-center space-x-2">
+                  <Icons.logo className="h-6 w-6 text-primary" />
+                  <span className="font-bold font-headline">MediCare</span>
+                </Link>
+                <div className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
+                  <div className="flex flex-col space-y-3">
+                    {navLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="text-foreground"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+          <nav className="flex items-center gap-2">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost">
+                  Sign Up
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <Link href="/signup/patient">
+                  <DropdownMenuItem>As a Patient</DropdownMenuItem>
+                </Link>
+                <Link href="/signup/doctor">
+                  <DropdownMenuItem>As a Doctor</DropdownMenuItem>
+                </Link>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <Link href="/login">
+              <Button>Login</Button>
+            </Link>
+            <ThemeToggle />
+          </nav>
+        </div>
+      </div>
+    </header>
+  );
+}
