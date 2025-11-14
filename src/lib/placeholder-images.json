@@ -3,8 +3,8 @@
     {
       "id": "hero-image",
       "description": "A compassionate doctor talking to a patient in a bright, modern clinic.",
-      "imageUrl": "https://images.unsplash.com/photo-1631217871099-88310a909a32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N0b3IlMjBwYXRpZW50fGVufDB8fHx8MTc2MzA1NDczOHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "doctor patient"
+      "imageUrl": "https://storage.googleapis.com/aif-us-build-prod-0/public/project_icoj095/team_collaboration_1720815410196_s48l3z31.jpeg",
+      "imageHint": "medical team collaboration"
     },
     {
       "id": "feature-schedule",
