@@ -45,7 +45,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-[calc(100vh-4rem)]">
       <main className="flex-1">
-        <section className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center text-center">
+        <section className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center">
           {heroImage && (
             <Image
               src={heroImage.imageUrl}
@@ -56,7 +56,7 @@ export default function Home() {
               priority
             />
           )}
-          <div className="container px-4 md:px-6 text-white">
+          <div className="container px-4 md:px-6 text-white text-center">
             <div className="flex flex-col items-center space-y-4">
               <SplitText
                 tag="h1"
