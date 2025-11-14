@@ -4,7 +4,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight, Calendar, FileText, Pill } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { AnimatedSplitText } from '@/components/animated-split-text';
+import SplitText from '@/components/split-text';
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
@@ -58,12 +58,11 @@ export default function Home() {
           )}
           <div className="container px-4 md:px-6 text-white">
             <div className="flex flex-col items-center space-y-4">
-              <AnimatedSplitText
-                el="div"
+              <SplitText
+                tag="h1"
                 text="Your Health, Connected and Cared For"
                 className="text-4xl font-bold tracking-tighter sm:text-6xl xl:text-7xl/none font-headline"
               />
-
               <p className="max-w-[700px] text-lg md:text-xl text-gray-200">
                 MediCare provides a seamless platform for patients and doctors
                 to manage healthcare efficiently and securely.
