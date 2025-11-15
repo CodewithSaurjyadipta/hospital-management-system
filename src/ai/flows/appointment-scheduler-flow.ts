@@ -7,6 +7,10 @@
 
 import { ai } from '@/ai/genkit';
 import { bookAppointment, getDoctorAvailability } from '@/lib/mock-data-tools';
+<<<<<<< HEAD
+=======
+import { mockDoctors } from '@/lib/mock-data';
+>>>>>>> 306ebb3 (Initial commit: Hospital management system files)
 import { z } from 'genkit';
 import { format } from 'date-fns';
 
@@ -21,12 +25,36 @@ const ScheduleAppointmentOutputSchema = z.object({
 });
 export type ScheduleAppointmentOutput = z.infer<typeof ScheduleAppointmentOutputSchema>;
 
+<<<<<<< HEAD
 const getAvailabilityTool = ai.defineTool(
   {
     name: 'getDoctorAvailability',
     description: 'Get the available appointment slots for a specific doctor on a given date.',
     inputSchema: z.object({
       doctorName: z.string().describe("The name of the doctor, e.g., 'Dr. Emily Carter'"),
+=======
+const listDoctorsTool = ai.defineTool(
+  {
+    name: 'listDoctors',
+    description: 'Get a list of all available doctors with their specialties. Use this when the user asks about doctors, specialties, or wants to see who is available.',
+    inputSchema: z.object({}),
+    outputSchema: z.array(z.object({
+      name: z.string(),
+      specialty: z.string(),
+    })),
+  },
+  async () => {
+    return mockDoctors.map(d => ({ name: d.name, specialty: d.specialty }));
+  }
+);
+
+const getAvailabilityTool = ai.defineTool(
+  {
+    name: 'getDoctorAvailability',
+    description: 'Get the available appointment slots for a specific doctor on a given date. Use this when the user asks about availability or wants to see time slots.',
+    inputSchema: z.object({
+      doctorName: z.string().describe("The name of the doctor, e.g., 'Dr. Emily Carter' or 'Emily Carter'"),
+>>>>>>> 306ebb3 (Initial commit: Hospital management system files)
       date: z.string().describe("The date to check for availability in 'YYYY-MM-DD' format."),
     }),
     outputSchema: z.array(z.string()),
@@ -62,6 +90,7 @@ const scheduleAppointmentPrompt = ai.definePrompt({
     name: 'scheduleAppointmentPrompt',
     input: { schema: z.object({ query: z.string(), today: z.string() }) },
     output: { schema: ScheduleAppointmentOutputSchema },
+<<<<<<< HEAD
     tools: [getAvailabilityTool, bookAppointmentTool],
     prompt: `You are a friendly and helpful AI assistant for a medical clinic.
     Your goal is to help users schedule appointments with doctors.
@@ -73,6 +102,32 @@ const scheduleAppointmentPrompt = ai.definePrompt({
     If you don't have enough information (e.g., doctor name, date), ask clarifying questions.
     Be polite and conversational.
 
+=======
+    tools: [listDoctorsTool, getAvailabilityTool, bookAppointmentTool],
+    prompt: `You are a friendly and helpful AI assistant for MediCare, a medical clinic.
+    Your goal is to help users schedule appointments with doctors using natural, conversational language.
+    
+    The current date is {{today}}.
+    
+    IMPORTANT GUIDELINES:
+    1. When users ask about doctors, specialties, or want to see who's available, use the listDoctors tool first.
+    2. When users ask about availability or time slots, use the getDoctorAvailability tool.
+    3. When users want to book an appointment, use the bookAppointment tool with the exact details.
+    4. Be conversational and friendly - understand natural language like "tomorrow", "next week", "Monday", etc.
+    5. If the user says "yes", "book it", "confirm", or similar after you've shown availability, proceed with booking.
+    6. Always confirm the appointment details before booking: doctor name, date, and time.
+    7. If you don't have enough information, ask ONE clarifying question at a time.
+    8. When booking is successful, set isBooked to true and provide a clear confirmation message.
+    9. Handle date formats flexibly - convert "tomorrow", "next Monday", etc. to YYYY-MM-DD format.
+    10. Be helpful and proactive - suggest alternatives if a time slot isn't available.
+    
+    EXAMPLES:
+    - "I need to see a cardiologist" → Use listDoctors, then ask which date they prefer
+    - "Is Dr. Carter available tomorrow?" → Use getDoctorAvailability with tomorrow's date
+    - "Book me with Dr. Emily Carter tomorrow at 10 AM" → Use bookAppointment directly
+    - "Yes, book it" (after showing availability) → Use bookAppointment with the previously discussed details
+    
+>>>>>>> 306ebb3 (Initial commit: Hospital management system files)
     User query: {{{query}}}
     `,
 });
@@ -106,5 +161,22 @@ const scheduleAppointmentFlow = ai.defineFlow(
 export async function scheduleAppointment(
   input: ScheduleAppointmentInput
 ): Promise<ScheduleAppointmentOutput> {
+<<<<<<< HEAD
   return scheduleAppointmentFlow(input);
+=======
+  // Check if API key is configured
+  if (!process.env.GOOGLE_GENAI_API_KEY) {
+    return {
+      response: "AI service is not configured. Please set GOOGLE_GENAI_API_KEY in your environment variables. Get your API key from https://aistudio.google.com/apikey",
+      isBooked: false,
+    };
+  }
+  
+  try {
+    return await scheduleAppointmentFlow(input);
+  } catch (error: any) {
+    console.error("Error in scheduleAppointment flow:", error);
+    throw error; // Re-throw to be caught by the action handler
+  }
+>>>>>>> 306ebb3 (Initial commit: Hospital management system files)
 }

@@ -65,10 +65,28 @@ export async function getAiSchedulerResponse(prevState: any, formData: FormData)
 
         return result;
 
+<<<<<<< HEAD
     } catch (error) {
         console.error("Error in AI Scheduler action:", error);
         return {
             response: "An unexpected error occurred. Please try again.",
+=======
+    } catch (error: any) {
+        console.error("Error in AI Scheduler action:", error);
+        const errorMessage = error?.message || error?.toString() || "Unknown error";
+        
+        // Check if it's an API key error
+        if (errorMessage.includes('API') || errorMessage.includes('key') || errorMessage.includes('GOOGLE')) {
+            return {
+                response: "AI service is not configured. Please set up your Google AI API key in the environment variables (GOOGLE_GENAI_API_KEY).",
+                isBooked: false,
+                error: true,
+            };
+        }
+        
+        return {
+            response: `Error: ${errorMessage}. Please check the console for more details.`,
+>>>>>>> 306ebb3 (Initial commit: Hospital management system files)
             isBooked: false,
             error: true,
         };

@@ -8,6 +8,7 @@
     },
     {
       "id": "feature-schedule",
+<<<<<<< HEAD
       "description": "A close-up of a digital calendar on a tablet screen showing appointments.",
       "imageUrl": "https://images.unsplash.com/photo-1617106400445-2a7a84cec8c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2FsZW5kYXIlMjBzY2hlZHVsZXxlbnwwfHx8fDE3NjMxMjU2MzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "calendar schedule"
@@ -23,6 +24,41 @@
       "description": "An assortment of colorful pills and a prescription bottle.",
       "imageUrl": "https://images.unsplash.com/photo-1641561421178-db8542057811?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGlsbHMlMjBtZWRpY2F0aW9ufGVufDB8fHx8MTc2MzE0NTcyM3ww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "pills medication"
+=======
+      "description": "A person using a smartphone to book a medical appointment through a calendar interface.",
+      "imageUrl": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "imageHint": "person booking appointment on phone"
+    },
+    {
+      "id": "feature-records",
+      "description": "A person viewing their medical records and health information on a laptop screen.",
+      "imageUrl": "https://images.unsplash.com/photo-1521791136064-7986c2920216?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "imageHint": "person viewing health records on laptop"
+    },
+    {
+      "id": "feature-prescriptions",
+      "description": "A close-up of a prescription bottle and medication with a smartphone showing prescription details.",
+      "imageUrl": "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "imageHint": "prescription bottle and medication"
+    },
+    {
+      "id": "feature-telemedicine",
+      "description": "A doctor and patient having a video consultation call on their devices.",
+      "imageUrl": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "imageHint": "video consultation call"
+    },
+    {
+      "id": "feature-care-coordination",
+      "description": "A group of healthcare professionals in a meeting discussing patient care plans with documents and tablets.",
+      "imageUrl": "https://images.unsplash.com/photo-1551601651-2a8555f1a136?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "imageHint": "healthcare team meeting"
+    },
+    {
+      "id": "feature-analytics",
+      "description": "A healthcare professional analyzing health data and charts on a computer monitor showing patient statistics.",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "imageHint": "health data analytics on computer"
+>>>>>>> 306ebb3 (Initial commit: Hospital management system files)
     },
     {
       "id": "doctor-avatar-1",
